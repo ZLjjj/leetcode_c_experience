@@ -1,0 +1,8 @@
+*returnSize++ 与 (*returnSize)++ 不同：
+
+*returnSize++：自增的是指针 returnSize，即指针向后移动一个位置。
+(*returnSize)++：自增的是指针指向的值。
+
+
+在 *returnColumnSizes[*returnSize] 中，[] 的优先级高于 *，所以 returnColumnSizes[*returnSize] 会被解释为访问一个二维数组中的某一行（指针偏移），然后再对该行解引用。
+在 (*returnColumnSizes)[*returnSize] 中，通过括号明确地先解引用 returnColumnSizes，再对结果数组进行索引操作。
