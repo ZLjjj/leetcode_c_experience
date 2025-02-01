@@ -19,3 +19,6 @@ void main(){
   combine(1,2,&a,b);
 }
 这个代码和上面那个代码的作用相同，但是操作b数组的方法不同，这里用returnColumnSizes[]来操作b数组因为returnColumnSizes指向的就是b数组的首地址。
+
+
+但是int **和int *比多了一个区别就是int **可以操作main函数里的b指针指向的内存空间。
