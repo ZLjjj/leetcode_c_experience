@@ -1,0 +1,21 @@
+int** combine(int n, int k, int* returnSize, int** returnColumnSizes) {
+    
+}
+void main(){
+  int a;
+  int b[];
+  combine(1,2,&a,&b);
+}
+比如在上面那个函数中,returnSize指向一个int型变量a；returnColumnSizes指向一个int *类型的变量b。returnSize就实现了操作变量a的功能，returnColumnSizes就实现了操作数组b[]的功能。
+具体操作方法如下：（*returnSize）和（*returnColumnSizes）[]。
+  这里很容易想到用returnColumnSizes来操作数组b，即returnColumnSizes[],这是错误的，因为returnColumnSizes指向一个一维数组，即returnColumnSizes->b[],那么returnColumnSizes[1]就表示
+  returnColumnSizes这个变量存的地址加了，即指向了一个未知的内存空间。
+int** combine(int n, int k, int* returnSize, int* returnColumnSizes) {
+    
+}
+void main(){
+  int a;
+  int b[];
+  combine(1,2,&a,b);
+}
+这个代码和上面那个代码的作用相同，但是操作b数组的方法不同，这里用returnColumnSizes[]来操作b数组因为returnColumnSizes指向的就是b数组的首地址。
