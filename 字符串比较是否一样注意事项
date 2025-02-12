@@ -1,0 +1,4 @@
+events[i][0]=="MESSAGE"
+这样进行的是地址比较
+使用 == 比较字符串会导致地址比较而非内容比较，应改用 strcmp。
+写法：(strcmp(target, "HERE") == 0;
