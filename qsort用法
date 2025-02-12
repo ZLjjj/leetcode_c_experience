@@ -1,0 +1,12 @@
+比如这个二维数组[["MESSAGE","2","HERE"],["OFFLINE","2","1"],["OFFLINE","1","0"],["MESSAGE","61","HERE"]]要按照中间的数字排序。
+int cmp(const void*a,const void *b){
+    char ***tep1=(char***)a;
+    char ***tep2=(char***)b;
+    int tep3=atoi(tep1[0][1]);
+    int tep4=atoi(tep2[0][1]);
+    return tep3-tep4;
+}
+
+qsort(events,eventsSize,sizeof(char **),cmp);
+
+events是一个char***的指针。
