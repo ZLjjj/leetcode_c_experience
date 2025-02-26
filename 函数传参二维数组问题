@@ -1,0 +1,14 @@
+dfs函数接受的tep和ifsearch参数类型为int**（指针数组），但在main函数中它们被声明为二维数组int tep[row][col]。在C语言中，二维数组和int**类型不兼容，导致访问错误
+
+原来写法
+void dfs(int **grid,int x,int y,int row,int col,int** tep,int **ifsearch)
+
+新写法
+void dfs(int **grid, int x, int y, int row, int col, int (*tep)[col], int (*ifsearch)[col])
+
+main函数
+    int tep[row][col];
+    int ifsearch[row][col];
+    dfs(grid, i, j, row, col, tep, ifsearch);
+
+主要的问题是二维数组是连续存放的，为int**是指针数组，不同指针指向的空间可以不连续，c语言不兼容这俩
